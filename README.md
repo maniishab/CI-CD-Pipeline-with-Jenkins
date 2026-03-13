@@ -58,13 +58,13 @@ The Jenkins pipeline performs the following steps:
 
 ### Pipeline Running
 
-![Pipeline Running](images/pipeline-running.png)
+![Pipeline Running](screenshots/pipeline-running.png)
 
 ---
 
 ### Application Running
 
-![Application Running](images/app-running.png)
+![Application Running](screenshots/app-running.png)
 
 ---
 
