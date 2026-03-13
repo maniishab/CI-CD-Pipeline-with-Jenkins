@@ -5,7 +5,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/maniishab/CI-CD-Pipeline-with-Jenkins.git'
+                 git branch:'main', url:'https://github.com/maniishab/CI-CD-Pipeline-with-Jenkins.git'
             }
         }
 
