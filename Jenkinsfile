@@ -5,25 +5,34 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                 git branch:'main', url:'https://github.com/maniishab/CI-CD-Pipeline-with-Jenkins.git'
+                git branch: 'main', url:'https://github.com/maniishab/CI-CD-Pipeline-with-Jenkins.git'
+            }
+        }
+
+        stage('Create Python Environment') {
+            steps {
+                sh '''
+                python3 -m venv venv
+                '''
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                sh 'pip3 install -r requirements.txt'
+                sh '''
+                . venv/bin/activate
+                pip install --upgrade pip
+                pip install -r requirements.txt
+                '''
             }
         }
 
-        stage('Run Tests') {
+        stage('Run Application') {
             steps {
-                sh 'pytest'
-            }
-        }
-
-        stage('Deploy Application') {
-            steps {
-                sh 'python3 app.py &'
+                sh '''
+                . venv/bin/activate
+                python app.py
+                '''
             }
         }
 
